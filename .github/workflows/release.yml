@@ -83,7 +83,10 @@ jobs:
     - name: Create package archive
       run: |
         npm pack
-        mv pricepatrol-parser-*.tgz pricepatrol-parser-${{ steps.version.outputs.VERSION }}.tgz
+        PACKAGE_FILE=$(ls stnick-pricepatrol-parser-*.tgz | head -n1)
+        if [ "$PACKAGE_FILE" != "stnick-pricepatrol-parser-${{ steps.version.outputs.VERSION }}.tgz" ]; then
+          mv "$PACKAGE_FILE" "stnick-pricepatrol-parser-${{ steps.version.outputs.VERSION }}.tgz"
+        fi
         
     - name: Generate changelog
       id: changelog
@@ -105,7 +108,7 @@ jobs:
         name: Release ${{ steps.version.outputs.VERSION }}
         body_path: release_notes.md
         files: |
-          pricepatrol-parser-${{ steps.version.outputs.VERSION }}.tgz
+          stnick-pricepatrol-parser-${{ steps.version.outputs.VERSION }}.tgz
           dist/*.js
           dist/*.d.ts
         draft: false
