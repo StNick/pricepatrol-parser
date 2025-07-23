@@ -1,8 +1,15 @@
 {
   "name": "@stnickza/pricepatrol-parser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Structured data parsing library for Price Patrol ecosystem",
-  "keywords": ["price-patrol", "structured-data", "parsing", "json-ld", "meta-tags", "data-layers"],
+  "keywords": [
+    "price-patrol",
+    "structured-data",
+    "parsing",
+    "json-ld",
+    "meta-tags",
+    "data-layers"
+  ],
   "author": "Price Patrol Team",
   "license": "MIT",
   "repository": {
