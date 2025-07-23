@@ -1,0 +1,68 @@
+# Source files (only ship built files)
+src/
+test/
+tests/
+
+# Development files
+*.config.js
+*.config.ts
+.eslintrc*
+.audit-ci.json
+.dependabot.yml
+debug.js
+
+# CI/CD
+.github/
+azure-pipelines.yml
+.travis.yml
+.circleci/
+
+# Documentation (except README)
+docs/
+*.md
+!README.md
+!LICENSE
+
+# Development dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+junit.xml
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary folders
+tmp/
+temp/
+
+# Environment files
+.env*
+
+# Lock files (let users choose their package manager)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# TypeScript
+*.tsbuildinfo
+tsconfig.json
+!tsconfig.json

@@ -1,0 +1,78 @@
+{
+  "name": "@pricepatrol/parser",
+  "version": "1.0.0",
+  "description": "Structured data parsing library for Price Patrol ecosystem",
+  "keywords": ["price-patrol", "structured-data", "parsing", "json-ld", "meta-tags", "data-layers"],
+  "author": "Price Patrol Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/StNick/pricepatrol-parser.git"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.esm.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./browser": {
+      "import": "./dist/browser.esm.js",
+      "require": "./dist/browser.js",
+      "types": "./dist/browser.d.ts"
+    },
+    "./processing": {
+      "import": "./dist/processing.esm.js",
+      "require": "./dist/processing.js",
+      "types": "./dist/processing.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types",
+    "build:esm": "esbuild src/index.ts src/browser.ts src/processing.ts --bundle --format=esm --platform=neutral --outdir=dist --out-extension:.js=.esm.js --external:jsdom",
+    "build:cjs": "esbuild src/index.ts src/browser.ts src/processing.ts --bundle --format=cjs --platform=node --outdir=dist --external:jsdom",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist",
+    "clean": "rimraf dist",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "prepublishOnly": "npm run build && npm run test:run",
+    "dev": "tsc --watch",
+    "release": "node scripts/release.js",
+    "release:patch": "npm run release patch",
+    "release:minor": "npm run release minor",
+    "release:major": "npm run release major"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitest/coverage-v8": "^1.0.0",
+    "esbuild": "^0.19.0",
+    "eslint": "^8.0.0",
+    "jsdom": "^23.0.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  },
+  "peerDependencies": {
+    "jsdom": "^23.0.0"
+  },
+  "peerDependenciesMeta": {
+    "jsdom": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
