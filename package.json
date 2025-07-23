@@ -1,6 +1,6 @@
 {
   "name": "@stnickza/pricepatrol-parser",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Structured data parsing library for Price Patrol ecosystem",
   "keywords": [
     "price-patrol",
